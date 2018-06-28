@@ -11,17 +11,17 @@ namespace MycollectionTest
     {
         static void Main()
         {
+           
             Console.WriteLine("Enter no of records");
             int size = Convert.ToInt16( Console.ReadLine());
-         
+            Person[] array = new Person[size];
             for (int i=0;i<size;i++)
             {
-                Person[] array = new Person[size];
+                
 
                 if (array[i] == null)
                 {
                     Person[] values = new Person[i];
-                   
                     Console.WriteLine("Enter User id:  ");
                     var s = Convert.ToString(Console.ReadLine());
                    // array1[i].UserId = s;
