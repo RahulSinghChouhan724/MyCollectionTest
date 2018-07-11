@@ -6,41 +6,67 @@ using System.Threading.Tasks;
 
 namespace MycollectionTest
 {
-    public static class ArrayHelper
+    public class ArrayHelper
     {
-        static void Main()
+        static Person[] array;
+        static int size;
+        
+        public static void Main()
         {
-            //Defining Size
+            size = getsize();
+            intializer(size);
+            insertDetails();
+            printDetails(array);
+        }
+
+
+        public static void intializer(int size)
+        {
+            array = new Person[size];
+        }
+
+        public static int getsize()
+        {
             Console.WriteLine("Enter no of records");
-            int size = Convert.ToInt16(Console.ReadLine());
+            size = Convert.ToInt16(Console.ReadLine());
+            return size;
+        }
 
-            Person[] array = new Person[size];
-
-            //Input Data
+        public static void insertDetails()
+        {
             for (int i = 0; i < size; i++)
             {
                 if (array[i] == null)
                 {
                     Console.Write("Enter User id:");
-                    var s = Convert.ToString(Console.ReadLine());
+                    var userId = Convert.ToString(Console.ReadLine());
                     Console.Write("Enter Name:");
-                    string n = Console.ReadLine();
+                    string name = Console.ReadLine();
                     Console.Write("Enter Age:");
-                    int A = Convert.ToInt16(Console.ReadLine());
+                    int age = Convert.ToInt32(Console.ReadLine());
                     Console.Write("Enter rollNo:");
-                    int R = Convert.ToInt16(Console.ReadLine());
+                    int rollNo = Convert.ToInt32(Console.ReadLine());
 
-                    InputDetails(s, n, A, R, array, i);
+                    InputDetailsInArray(userId, name, age, rollNo, array, i);
                 }
-
-                 xprintDetails(array);
             }
-
             Console.WriteLine("Array is already full");
             Console.ReadLine();
         }
 
-        private static void xprintDetails(Person[] array)
+        public static void InputDetailsInArray(string userId, string name, int age, int rollNo, Person[] array, int i)
+        {
+            Person det = new Person();
+            det.UserId = userId;
+            det.Pname = name;
+            det.Age = age;
+            det.RollNo = rollNo;
+
+            //Store value in array 
+            array[i] = det;
+        }
+
+        public static void printDetails(Person[] array)
         {
             var list = array.ToList();
 
@@ -51,23 +77,7 @@ namespace MycollectionTest
                 Console.WriteLine(value.Age);
                 Console.WriteLine(value.RollNo);
             }
-
-            
         }
 
-        private static void InputDetails(string s, string n, int A, int R, Person[] array, int i)
-        {
-            Person Pname = new Person();
-
-            Pname.UserId = s;
-            Pname.Pname = n;
-            Pname.Age = A;
-            Pname.RollNo = R;
-
-            //Store value in array 
-            array[i] = Pname;
-        }
-
-       
     }
 }

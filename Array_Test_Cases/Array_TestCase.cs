@@ -9,10 +9,22 @@ namespace Array_Test_Cases
     public class Array_TestCase
     {
         [TestMethod]
-        public void TheArrayShouldNotReturnnull()
+        //checkRollNoIsNotNullable
+        public void CheckRollNoIsNotNullable()
         {
-           
-            
+            var P = new Person();
+            P.RollNo = 101;
+            var t = P.RollNo; 
+            Assert.Equals(t, null);
         }
+
+        [TestMethod]
+        public void CheckUserIdIsStringOrNot()
+        {
+            ArrayHelper p= new ArrayHelper;
+           
+        }
+        
+
     }
 }
