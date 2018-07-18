@@ -21,8 +21,8 @@ namespace Array_Test_Cases
         [TestMethod]
         public void CheckUserIdIsStringOrNot()
         {
-            ArrayHelper p= new ArrayHelper;
            
+            
         }
         
 
